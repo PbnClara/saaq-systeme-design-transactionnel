@@ -1,0 +1,25 @@
+/**
+* @author Gabriel Caron <gabriel.caron@saaq.gouv.qc.ca>
+* @description Styles des balises racines
+* @version 1.0
+* @date 6 juillet 2022
+*/
+
+
+// Base décimale + border-box
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  background-color: $gris-fond;
+  font-family: $MontserratRegular;
+}
+
+// Images responsives
+img {
+  max-width: 100%;
+  vertical-align: bottom;
+  display: block;
+}

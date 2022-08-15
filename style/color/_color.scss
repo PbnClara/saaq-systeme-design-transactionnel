@@ -1,0 +1,269 @@
+/**
+* @author Clara Plébani <clara.plebani@saaq.gouv.qc.ca>
+* @version 2.2
+* @date 04 avril 2022
+*
+* ------------------
+* TABLE DES MATIERES
+* ------------------
+* SCSS COLOR STYLE PAGE
+*/
+
+/// Boutons ///
+.code1{
+  display: none;
+}
+.code2{
+  display: none;
+}
+.code{
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+.boutonCode{
+  width: 150px;
+  height: 30px;
+  margin: 7px;
+  background-color: #FFFFFF;
+  border: 1px solid #FFFFFF;
+  border-radius: 3px;
+}
+.boutonCode:hover{
+  background-color: #C2C2C2;
+  border: 1px solid #C2C2C2;
+}
+
+/// Navigation ///
+.entete__navPageSousLien{
+  text-decoration: none;
+  font-color: $text-02;
+}
+
+/// Textes ///
+.titreColor{
+  margin: 5px;
+}
+.titreColorBlanc{
+  margin: 5px;
+  color: $ui-01;
+}
+.horizontale{
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-around;
+}
+.ligne{
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-around;
+}
+.introduction{
+  margin-bottom: 20px;
+}
+
+.section__titreH4{
+  margin-top: 35px;
+  padding-bottom: 0.001px !important;
+}
+
+
+////////// Couleurs //////////
+#flex {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+////////// Couleurs Primaire //////////
+.contenuCouleur1{
+  padding: 0;
+  margin: 0;
+}
+#conteneurBrand{
+  height: 450px;
+  border:1px solid #000;
+  justify-content: space-around;
+}
+.brand-01{
+  background: $brand-01;
+  width:200px;
+  height:200px;
+  margin: 10px;
+  border-radius: 8px;
+}
+.brand-02{
+  background: $brand-02;
+  width:200px;
+  height:200px;
+  margin: 10px;
+  border-radius: 8px;
+}
+.brand-03{
+  background: $brand-03;
+  width:200px;
+  height:200px;
+  margin: 10px;
+  border-radius: 8px;
+}
+
+////////// Couleurs Secondaire //////////
+.contenuCouleur2{
+  padding-top: 50px;
+  margin: 0;
+}
+#conteneurUi{
+  height: 650px;
+  border:1px solid #000;
+  justify-content: space-around;
+}
+.ui-10{
+  background: $ui-10;
+  width:200px;
+  height:200px;
+  margin: 10px;
+  border-radius: 8px;
+}
+.ui-01{
+  background: $ui-01;
+  width:200px;
+  height:200px;
+  margin: 10px;
+  border-radius: 8px;
+}
+.ui-02{
+  background: $ui-02;
+  width:200px;
+  height:200px;
+  margin: 10px;
+  border-radius: 8px;
+}
+.ui-03{
+  background: $ui-03;
+  width:200px;
+  height:200px;
+  margin: 10px;
+  border-radius: 8px;
+}
+.ui-04{
+  background: $ui-04;
+  width:200px;
+  height:200px;
+  margin: 10px;
+  border-radius: 8px;
+}
+.ui-05{
+  background: $ui-05;
+  width:200px;
+  height:200px;
+  margin: 10px;
+  border-radius: 8px;
+}
+
+
+////////// Couleurs Text //////////
+.contenuCouleur3{
+  padding-top: 50px;
+  margin: 0;
+}
+.divText{
+  flex-direction: row-reverse;
+}
+
+#conteneurText{
+  height: 650px;
+  border:1px solid #000;
+  justify-content: space-around;
+  flex-direction: row-reverse;
+}
+.text-01{
+  background: $text-01;
+  width:200px;
+  height:200px;
+  margin: 10px;
+  border-radius: 8px;
+}
+.text-02{
+  background: $text-02;
+  width:200px;
+  height:200px;
+  margin: 10px;
+  border-radius: 8px;
+}
+.text-03{
+  background: $text-03;
+  width:200px;
+  height:200px;
+  margin: 10px;
+  border-radius: 8px;
+}
+.text-04{
+  background: $text-04;
+  width:200px;
+  height:200px;
+  margin: 10px;
+  border-radius: 8px;
+}
+.text-05{
+  background: $text-05;
+  width:200px;
+  height:200px;
+  margin: 10px;
+  border-radius: 8px;
+}
+.text-06{
+  background: $text-06;
+  width:200px;
+  height:200px;
+  margin: 10px;
+  border-radius: 8px;
+}
+
+
+////////// Couleurs Support //////////
+.contenuCouleur4{
+  padding-top: 50px;
+  margin: 0;
+}
+#conteneurSupport{
+  height: 650px;
+  border:1px solid #000;
+  justify-content: space-around;
+
+}
+.support-01{
+  background: $support-01;
+  width:200px;
+  height:200px;
+  margin: 10px;
+  border-radius: 8px;
+}
+.support-02{
+  background: $support-02;
+  width:200px;
+  height:200px;
+  margin: 10px;
+  border-radius: 8px;
+}
+.support-03{
+  background: $support-03;
+  width:200px;
+  height:200px;
+  margin: 10px;
+  border-radius: 8px;
+}
+.support-04{
+  background: $support-04;
+  width:200px;
+  height:200px;
+  margin: 10px;
+  border-radius: 8px;
+}
+.support-05{
+  background: $support-05;
+  width:200px;
+  height:200px;
+  margin: 10px;
+  border-radius: 8px;
+}

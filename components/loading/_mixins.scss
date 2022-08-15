@@ -1,0 +1,41 @@
+//-------------------------
+// Animations - Loading
+//-------------------------
+
+@mixin animation__loading--spin {
+  @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
+    /* IE10+ specific svg animation */
+    // Animate the container
+    transform-origin: 50% 50%;
+
+    animation-name: rotate;
+    animation-duration: 2000ms;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+  }
+
+  // Circles animation
+  & path {
+    transform-origin: 50% 50%;
+
+    animation-name: rotate;
+    animation-duration: 2000ms;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-delay: 0ms;
+
+    &:last-of-type {
+      animation-duration: 1000ms;
+      animation-direction: reverse;
+    }
+  }
+}
+
+@mixin animation__loading--stop {
+  & svg circle, & svg path {
+    transform: none;
+    animation: none;
+  }
+}

@@ -1,0 +1,25 @@
+/**
+* @author Clara Plébani <clara.plebani@saaq.gouv.qc.ca>
+* @version 2.2
+* @date 04 avril 2022
+*
+* ------------------
+* TABLE DES MATIERES
+* ------------------
+* SCSS GRID STYLE PAGE
+*/
+
+.liste{
+  list-style-type: circle;
+  padding-left: 20px;
+
+  &__listes{
+    margin: 15px;
+  }
+}
+
+.exception .section__titreH4{
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+

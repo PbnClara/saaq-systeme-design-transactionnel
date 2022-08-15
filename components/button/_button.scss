@@ -1,0 +1,32 @@
+/**
+* @author Gabriel Caron <gabriel.caron@saaq.gouv.qc.ca>
+* @version 2.1
+* @date 27 juillet 2022
+*/
+
+// un mixin est prévu, car d'autres variantes de ce bouton arriveront plus tard
+@mixin boutonDeBase {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: $brand-01;
+  color: $ui-01;
+  border: none;
+  font-size: 1.6rem;
+  padding: 1.15rem 3rem;
+  margin: 1.6rem 0;
+  line-height: initial; // uniformise les <a> et <button>
+  text-decoration: none;
+  border-radius: 0.5rem;
+  transition: all $transition--base ease-in-out;
+
+  &:hover, &:focus {
+    background-color: $brand-02;
+    color: $noir;
+  }
+}
+
+.#{$prefix}-btn {
+  @include boutonDeBase;
+}

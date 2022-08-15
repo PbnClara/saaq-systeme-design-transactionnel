@@ -1,0 +1,85 @@
+// Filtre et option en haut du tableau.
+.#{$prefix}-table-toolbar {
+  display: flex;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  width: 100%;
+  position: relative;
+
+  // Filtre
+  .#{$prefix}-search-input {
+    position: relative;
+
+    // Filtre en focus
+    &:focus {
+      box-shadow: inset 0 0 0 1px $brand-01;
+      outline: 0;
+    }
+  }
+
+  // Button
+  .#{$prefix}-btn--primary:last-of-type {
+    margin-right: 0;
+  }
+}
+
+// Barre d'option du tableau
+.#{$prefix}-toolbar-content {
+  display: flex;
+  margin-left: auto;
+  margin-right: 18px;
+}
+
+// Zone des 3 icons de la barre d'option
+.#{$prefix}-toolbar-action {
+  cursor: pointer;
+  padding-left: 1.75rem;
+  padding-right: 1.75rem;
+
+  &:hover,
+  &:focus {
+    > .#{$prefix}-toolbar-action__icon {
+      fill: $brand-02;
+    }
+  }
+
+  &:active {
+    > .#{$prefix}-toolbar-action__icon {
+      fill: darken($brand-02, 5%);
+    }
+  }
+
+  // Bouton
+  ~ .#{$prefix}-btn {
+    margin-left: 1.75rem;
+    margin-right: 1.75rem;
+  }
+}
+
+// Icons d'option
+.#{$prefix}-toolbar-action__icon {
+  height: rem(16px);
+  width: auto;
+  max-width: 16px;
+  fill: $brand-01;
+  transition: $transition--base;
+}
+
+// boutons fantome
+.#{$prefix}-batch-actions {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  opacity: 0;
+  left: 0;
+  top: 0;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  width: 100%;
+  height: 100%;
+  z-index: z('header');
+  background-color: transparent;
+  transition: opacity 200ms ease-in, background-color 200ms ease-in;
+  pointer-events: none;
+  visibility: hidden;
+}

@@ -1,0 +1,80 @@
+//-----------------------------
+// Notifications
+//-----------------------------
+
+.#{$prefix}-toast-notification {
+  @include layer('overlay');
+  display: flex;
+  justify-content: space-between;
+  width: 16.875rem;
+  padding: 1rem 0.75rem 1.5rem 1rem;
+  background-color: $ui-01;
+  color: $text-01;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  margin-right: 1rem;
+
+  &:first-child {
+    margin-top: 5rem;
+    @media (min-width: 768px) {
+      margin-top: 5.5rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    width: 100%;
+  }
+}
+
+.#{$prefix}-toast-notification--error {
+  @include notification--color($support-01);
+}
+
+.#{$prefix}-toast-notification--success {
+  @include notification--color($support-02);
+}
+
+.#{$prefix}-toast-notification--info {
+  @include notification--color($support-04);
+}
+
+.#{$prefix}-toast-notification--warning {
+  @include notification--color($support-03);
+}
+
+.#{$prefix}-toast-notification__close-button {
+  background-color: $ui-01;
+  border: none;
+  cursor: pointer;
+  margin: 0;
+  width: 12px;
+  height: 12px;
+  position: relative;
+}
+
+.#{$prefix}-toast-notification__icon {
+  height: 16px;
+  width: 16px;
+  fill: $ui-04;
+  position: absolute;
+  top: 1px;
+  right: 1px;
+}
+
+.#{$prefix}-toast-notification__title {
+  letter-spacing: 0;
+  line-height: 1;
+  padding-bottom: 1.125rem;
+}
+
+.#{$prefix}-toast-notification__subtitle {
+  color: $text-01;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.#{$prefix}-toast-notification__caption {
+  color: $text-01;
+  line-height: 1;
+}

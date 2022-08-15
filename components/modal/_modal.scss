@@ -1,0 +1,111 @@
+//-----------------------------
+// Modals
+//-----------------------------
+
+@import "mixins";
+
+.#{$prefix}-modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: z('hidden');
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  content: '';
+  opacity: 0;
+  background-color: rgba($ui-03, 0.5);
+  transition: opacity 200ms, z-index 0s 200ms, visibility 0s 200ms;
+  visibility: hidden;
+
+  &.is-visible {
+    z-index: z('modal');
+    opacity: 1;
+    transition: opacity 200ms;
+    visibility: visible;
+  }
+}
+
+.#{$prefix}-modal--danger {
+  @include modal--color($support-01);
+}
+
+.#{$prefix}-modal-container {
+  @include layer('pop-out');
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: $ui-01;
+  border-top: 5px solid $brand-01;
+  min-width: 100%;
+  max-height: 100%;
+  height: auto;
+  padding: 2rem 3% 0rem 3%;
+
+  @media (min-width: 600px) {
+    min-width: 500px;
+    max-width: 75%;
+    max-height: 90%;
+    padding: rem(44px) 3rem 0 3rem;
+  }
+
+  @media (min-width: 1024px) {
+    max-width: 50%;
+    max-height: 80%;
+  }
+}
+
+.#{$prefix}-modal-header {
+  margin-bottom: 1.5rem;
+}
+
+.#{$prefix}-modal-header__label {
+  color: $text-01;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 1.5rem;
+}
+
+.#{$prefix}-modal-header__heading {
+  color: $text-01;
+}
+
+.#{$prefix}-modal-content {
+  overflow-y: auto;
+  margin-bottom: 3rem;
+}
+
+.#{$prefix}-modal-footer {
+  margin-top: auto;
+  text-align: right;
+  background-color: $ui-03;
+  margin-left: rem(-24px);
+  margin-right: rem(-24px);
+  padding: 1.5rem 2rem;
+
+  @media (min-width: 600px) {
+    margin-left: rem(-48px);
+    margin-right: rem(-48px);
+    padding: 1.5rem 3rem;
+  }
+}
+
+.#{$prefix}-modal-close {
+  position: absolute;
+  top: rem(16px);
+  right: rem(16px);
+  padding: 0;
+  overflow: hidden;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+.#{$prefix}-modal-close__icon {
+  transition: 200ms;
+  fill: $ui-04;
+  width: 1rem;
+  height: 1rem;
+}

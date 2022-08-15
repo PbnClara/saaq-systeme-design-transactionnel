@@ -1,0 +1,8 @@
+// TODO vérifier si c'est vraiment utile ? –Gabriel
+
+tr.#{$prefix}-expandable-row-v2 {
+  // hide on init
+  &.#{$prefix}-expandable-row--hidden-v2 {
+    display: none;
+  }
+}

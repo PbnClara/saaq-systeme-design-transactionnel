@@ -1,0 +1,84 @@
+/**
+* @author Clara Plébani <clara.plebani@saaq.gouv.qc.ca>
+* @version 2.2
+* @date 04 avril 2022
+*
+* ------------------
+* TABLE DES MATIERES
+* ------------------
+* SCSS ICONOGRAPHY STYLE PAGE
+*/
+
+////////// Buttons //////////
+.buttonCode{
+  padding-top: 10px;
+}
+.buttonDownloardIcon{
+  background-color: #007475;
+  color: #FFFFFF;
+  border: 1px solid #FFFFFF;
+  padding: 10px 30px 10px 30px;
+  border-radius: 3px;
+  font-size: 16px;
+}
+.buttonDownloardIcon:hover{
+  background-color: #005b5c;
+  border: 1px solid #C2C2C2;
+}
+.buttonCopyIcon{
+  background-color: #007475;
+  font-size: 16px;
+  color: #FFFFFF;
+  border: 1px solid #FFFFFF;
+  padding: 10px 30px 10px 30px;
+  border-radius: 3px;
+}
+.buttonCopyIcon:hover{
+  background-color: #005b5c;
+  border: 1px solid #C2C2C2;
+}
+
+////////// UI icons //////////
+.contenuIcon{
+}
+.section__titreH5{
+  padding-top: 20px;
+  color: #005b5c;
+}
+.contenuDesIcon{
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.pictureIcon{
+  align-content: center;
+}
+#icon{
+  text-align: center;
+  width: 200px;
+  padding: 30px;
+  background-color: #FFFFFF;
+}
+
+.liste{
+  list-style-type: circle;
+  padding-left: 20px;
+
+  &__listes{
+    margin: 15px;
+  }
+}
+
+.numero{
+  list-style-type: decimal;
+  padding-left: 20px;
+  &__liste{
+    margin: 15px;
+  }
+}
+
+.exception .section__titreH4{
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}

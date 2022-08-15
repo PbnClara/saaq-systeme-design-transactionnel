@@ -1,0 +1,79 @@
+.#{$prefix}-number {
+  display: flex;
+  position: relative;
+}
+
+.#{$prefix}-number input[type='number'] {
+  box-sizing: border-box;
+  display: inline-flex;
+  width: 100%;
+  min-width: 9.375rem;
+  padding-left: 1rem;
+  padding-right: 2rem;
+  height: rem(40px);
+  color: $text-01;
+  background-color: $ui-03;
+  border: $input-border;
+  border-radius: 0;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &:disabled ~ .#{$prefix}-number__controls {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+.#{$prefix}-number input[type='number'] {
+  appearance: textfield; // Firefox: Hide spinner (up and down buttons)
+
+  &::-ms-clear {
+    display: none; // IE: Hide "clear-field" `x` button on input field
+  }
+
+  &::-webkit-inner-spin-button {
+    appearance: none; // Safari: Hide number spinner
+  }
+}
+
+.#{$prefix}-number__controls {
+  height: 100%;
+  position: absolute;
+  display: block;
+  right: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.#{$prefix}-number__control-btn {
+  position: relative;
+  bottom: 0;
+  width: rem(20px);
+  height: rem(10px);
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:hover svg {
+    fill: $brand-02;
+  }
+}
+
+.#{$prefix}-number__controls svg {
+  fill: $brand-01;
+  width: rem(9px);
+  height: rem(9px);
+
+  // Hover styles for use with old HTML w/o button
+  &:hover {
+    cursor: pointer;
+    fill: $brand-02;
+  }
+}

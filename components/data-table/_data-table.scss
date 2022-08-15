@@ -1,0 +1,31 @@
+@import 'data-table-action';
+@import 'data-table-core';
+@import 'data-table-expandable';
+@import 'data-table-sort';
+
+.#{$prefix}-checkbox-dataTable::before {
+  box-sizing: border-box;
+  border-radius: 3px;
+  content: '';
+  position: absolute;
+  left: 0;
+  top: calc(50% - 9px);
+  height: 30px;
+  width: 30px;
+  border: solid $brand-01 2px;
+  background-color: $ui-01;
+}
+
+.#{$prefix}-checkbox-dataTable::after {
+  width: 15px;
+  height: 8px;
+  background: none;
+  border-left: 3.5px solid $ui-01;
+  border-bottom: 3.5px solid $ui-01;
+  transform: scale(0) rotate(-45deg);
+  position: absolute;
+  left: rem(5px);
+  top: 55%;
+  margin-top: -0.1rem;
+  border-radius: 1px;
+}

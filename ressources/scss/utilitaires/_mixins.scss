@@ -1,0 +1,164 @@
+/**
+* @author Gabriel Caron - gabriel.caron@saaq.gouv.qc.ca
+* @version 2.6
+*
+* ------------------
+* TABLE DES MATIERES
+* ------------------
+* UTILITAIRES DE BASE
+** Box sizing
+* Clearfix
+* ACCESSIBILITÉ
+** Visually hidden/screen reader only
+** Lien sauter au contenu
+* TYPOGRAPHIE
+* Fonction pour convertir une valeur de font-size en pixels à son équivalent rem
+* Mixin qui inclus la solution de repli en pixel suivi par la valeur calculée en rem
+* Mixin pour conteneur de base à 1200px
+* Mixin pour rangée Flex par défaut
+* Mixin pour rangée Grid sur 12 colonnes
+* Mixin pour le padding de base pour mobile
+*/
+
+/***** Accessibilité *****/
+
+// Hide only visually, but have it available for screenreaders:
+// http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+@mixin screen-reader-only {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+
+  // Extends the .visuallyhidden class to allow the element to be focusable
+  // when navigated to via the keyboard: https://www.drupal.org/node/897638
+  &.focusable:active,
+  &.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+  }
+}
+
+/* Accessibilité */
+
+.screen-reader-only {
+  @include screen-reader-only;
+}
+
+
+// Mixin pour conteneur parent en Grid
+@mixin conteneur1200px($conteneurBleed: false, $flex: false, $pointRupture: $mobile600px, $largeurMax: $desktop1400px) {
+  @supports (grid-template-columns: minmax(auto, $largeurMax)) {
+    @media (min-width: $pointRupture) {
+      @if $flex == true {
+        display: flex;
+        max-width: $largeurMax;
+        margin: 0 auto;
+      } @else {
+        display: grid;
+        grid-template-columns: minmax(auto, $largeurMax);
+        justify-content: center;
+      }
+      @if $conteneurBleed == true {
+        padding: 0;
+      } @else {
+        @include paddingConteneur;
+      }
+    }
+  }
+  @supports not (grid-template-columns: minmax(auto, $desktop1400px)) {
+    max-width: $desktop1400px;
+  }
+}
+
+// Mixin pour rangée Grid sur 16 colonnes
+@mixin rangeeGrid16col($pointRupture: $mobile600px) {
+  @supports (grid-template-columns: minmax(auto, 1200px)) {
+    @media (min-width: $pointRupture) {
+      display: grid;
+      grid-template-columns: repeat(16, 1fr);
+      column-gap: 20px;
+    }
+  }
+}
+
+// Mixin pour rangée Grid sur 12 colonnes
+@mixin rangeeGrid12col($pointRupture: $mobile600px) {
+  @supports (grid-template-columns: minmax(auto, 1200px)) {
+    @media (min-width: $pointRupture) {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: 20px;
+    }
+  }
+}
+
+
+// Mixin pour rangée Flex par défaut
+@mixin rangeeFlex {
+  display: flex;
+  justify-content: space-between;
+}
+
+// Mixin pour le padding de base pour mobile si Grid ou Flex ne sont pas utilisés
+@mixin paddingConteneur {
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+
+
+//----------------------------------------------
+// Trucs à migrer ou éliminer (patrimoine)
+// ---------------------------------------------
+
+// TODO vérifier si c'est vraiment utile
+@mixin text-overflow($width: false) {
+  display: block;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  // apply a width if width parameter exists
+  @if ($width) {
+    width: $width;
+  }
+}
+
+// TODO éliminer dès que possible
+@mixin placeholder-colors {
+  color: rgba($text-01, 0.6);
+}
+
+
+// TODO remplacer par screen-reader-only
+@mixin hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+  visibility: visible;
+  white-space: nowrap;
+}
+
+// TODO à éliminer dès que possible
+
+@mixin light-ui {
+  .#{$prefix}-global-light-ui & {
+    @content;
+  }
+}
+
+

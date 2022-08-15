@@ -1,0 +1,131 @@
+//-----------------------------
+// Dropdown
+//-----------------------------
+
+.#{$prefix}-dropdown {
+  position: relative;
+  list-style: none;
+  display: block;
+  background-color: $ui-03;
+  width: 100%;
+  height: rem(40px);
+  cursor: pointer;
+  color: $text-01;
+
+  &.#{$prefix}-dropdown--open:focus {
+    outline: 1px solid transparent;
+    box-shadow: 0 -1px 0 0 $brand-01, 1px 0 0 0 $brand-01, -1px 0 0 0 $brand-01;
+  }
+}
+
+.#{$prefix}-dropdown--up {
+  &.#{$prefix}-dropdown--open:focus {
+    box-shadow: 0 1px 0 0 $brand-01, 1px 0 0 0 $brand-01, -1px 0 0 0 $brand-01;
+
+    .#{$prefix}-dropdown-list {
+      box-shadow: 0 -1px 0 0 $brand-01, 1px 0 0 0 $brand-01, -1px 0 0 0 $brand-01;
+    }
+  }
+
+  .#{$prefix}-dropdown-list {
+    bottom: 2.5rem;
+  }
+}
+
+.#{$prefix}-dropdown__arrow {
+  fill: $brand-01;
+  position: absolute;
+  right: 1rem;
+  top: 1.175rem;
+  width: rem(10px);
+  height: rem(5px);
+  pointer-events: none;
+  transition: transform $transition--expansion ease-in;
+  transform-origin: 50% 45%;
+}
+
+.#{$prefix}-dropdown[data-value=''] .#{$prefix}-dropdown-text {
+  color: $text-01;
+}
+
+.#{$prefix}-dropdown-text {
+  height: rem(40px);
+  padding-top: rem(13px);
+  padding-bottom: rem(13px);
+  padding-left: 1rem;
+  padding-right: 2.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border: $input-border;
+}
+
+.#{$prefix}-dropdown-list {
+  @include layer('overlay');
+  background-color: $ui-01;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  list-style: none;
+  position: absolute;
+  z-index: z('dropdown');
+  max-height: 0;
+  transition: max-height $transition--expansion ease-out;
+  overflow: hidden;
+}
+
+.#{$prefix}-dropdown-item {
+  transition: opacity $transition--expansion ease-out;
+  opacity: 0;
+}
+
+.#{$prefix}-dropdown-link {
+  display: block;
+  color: currentColor;
+  text-decoration: none;
+  padding: 1rem 1.5rem 1rem 1rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  &:hover,
+  &:focus {
+    background-color: $brand-01;
+    color: $ui-01;
+    outline: 1px solid transparent;
+  }
+}
+
+.#{$prefix}-dropdown--selected {
+  display: none;
+}
+
+.#{$prefix}-dropdown--open {
+  .#{$prefix}-dropdown__arrow {
+    transform: rotate(-180deg);
+  }
+
+  .#{$prefix}-dropdown-list {
+    max-height: 15rem;
+    position: relative;
+    z-index: 600;
+
+    &:hover {
+      overflow: auto;
+    }
+  }
+
+  &:focus {
+    .#{$prefix}-dropdown-list {
+      box-shadow: 0 1px 0 0 $brand-01, 1px 0 0 0 $brand-01, -1px 0 0 0 $brand-01;
+    }
+  }
+
+  .#{$prefix}-dropdown-item {
+    opacity: 1;
+  }
+}
+
+.#{$prefix}-dropdown--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

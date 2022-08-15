@@ -1,0 +1,51 @@
+$loading__gap: 40;
+$loading__md: 8rem;
+$loading__sm: 2rem;
+
+@import 'keyframes';
+@import 'mixins';
+
+.#{$prefix}-loading {
+  width: $loading__md;
+  height: $loading__md;
+
+  .#{$prefix}-loading__svg {
+    fill: $brand-01;
+    width: $loading__md;
+    height: $loading__md;
+
+    @include animation__loading--spin;
+  }
+}
+
+.#{$prefix}-loading--stop {
+  @include animation__loading--stop;
+}
+
+.#{$prefix}-loading--small {
+  width: $loading__sm;
+  height: $loading__sm;
+
+  .#{$prefix}-loading__svg {
+    width: $loading__sm;
+    height: $loading__sm;
+  }
+}
+
+.#{$prefix}-loading-overlay {
+  //position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba($ui-01, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 250ms ease-in;
+  z-index: z('overlay');
+}
+
+.#{$prefix}-loading-overlay--stop {
+  display: none;
+}

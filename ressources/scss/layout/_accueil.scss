@@ -1,0 +1,83 @@
+/**
+* @author Gabriel Caron <gabriel.caron@saaq.gouv.qc.ca>
+* @version 2.3
+* @date 6 juillet 2022
+*
+* ------------------
+* TABLE DES MATIERES
+* ------------------
+* ACCUEIL
+** Images responsives
+*
+*/
+
+// TODO déménager tous les styles du site Web dans une seule feuille de styles
+
+/* Positionnement de la page */
+
+.page {
+
+  /* Positionnement du contenu */
+
+  &.accueil .contenu {
+
+    & .banniere {
+      background-color: $brand-03;
+
+      &__titre {
+        padding: 15rem 0;
+        margin: 0;
+        font-size: 5rem;
+        color: $brand-01;
+        line-height: 110%;
+        text-align: center;
+      }
+    }
+
+    & .tuiles {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      margin: 0 auto;
+      padding: 4rem;
+      max-width: 60rem;
+    }
+
+    & .tuile {
+      @include layer('overlay');
+      display: inline-block;
+      text-decoration: none;
+      width: 25rem;
+      padding: 2rem 2rem 3rem 2rem;
+      background-image: url(../../../liaisons/images/fleche-tuile.svg);
+      background-repeat: no-repeat;
+      background-position: 90% 90%;
+      background-size: 5rem;
+      border-radius: 0.3rem;
+      transition: all $transition--base ease-in;
+
+      &:hover, &:focus {
+        background-color: $brand-01;
+        color: $text-03;
+        background-position: 93% 90%;
+
+        & .libelle {
+          color: $text-03;
+        }
+      }
+
+      &__titre {
+        font-size: 3rem;
+        margin: 0 4rem 0.5rem 0;
+        color: $brand-01;
+      }
+
+      &__description {
+        color: $ui-02;
+        margin: 0 3rem 3rem 0;
+      }
+    }
+
+  }
+}

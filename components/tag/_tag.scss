@@ -1,0 +1,41 @@
+/**
+* @author Clara Plébani <clara.plebani@saaq.gouv.qc.ca>
+* @author Gabriel Caron <gabriel.caron@saaq.gouv.qc.ca>
+* @version 3.1
+* @date 27 juillet 2022
+*/
+
+// L'étiquette de base = la plus simple = grise
+.#{$prefix}-tag {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  line-height: 110%;
+  padding: 0.371rem 1rem; // hauteur prévue de 25px
+  margin: 1.6rem 1rem;
+  width: fit-content;
+  color: #212121;
+  background-color: #f3f3f3; //$support-05 à 50%
+  box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.05), -5px -5px 20px #FFFFFF;
+
+  &.vert {
+    color: #023D01;
+    background-color: #ade8be; //$support-02 à 50%
+  }
+
+  &.jaune {
+    color: #303102;
+    background-color: #ffe9b3; //$support-03 à 50%
+  }
+
+  &.rouge {
+    color: #400000;
+    background-color: #ffb3b3; //$support-01 à 50%
+  }
+
+  &.bleu {
+    color: #111C55;
+    background-color: #a3def1; //$support-04 à 50%
+  }
+}

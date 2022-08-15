@@ -1,0 +1,12 @@
+{
+  "name": "saaq-systeme-design-transactionnel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ressources/scss:liaisons/css",
+    "sassprod": "sass --style=compressed ressources/scss:liaisons/css"
+  },
+  "author": "Direction générale des communications et des relations publiques",
+  "license": "ISC"
+}

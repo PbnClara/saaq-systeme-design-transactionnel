@@ -1,0 +1,63 @@
+.#{$prefix}-breadcrumb {
+  display: inline;
+
+  @include breakpoint(bp--xs--major) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.#{$prefix}-breadcrumb-item {
+  margin-right: 1rem;
+  display: flex;
+  align-items: center;
+
+  @include breakpoint(bp--sm--major) {
+    display: flex;
+  }
+
+  display: none;
+
+  &:first-child {
+    display: flex;
+  }
+
+  &:last-child {
+    display: flex;
+  }
+}
+
+
+.#{$prefix}-breadcrumb-item::after {
+  content: '/';
+  margin-left: 1rem;
+  color: $text-01;
+
+}
+
+.#{$prefix}-breadcrumb-item:last-child {
+  margin-right: 0;
+
+  &::after {
+    margin-right: 0;
+  }
+}
+
+.#{$prefix}-breadcrumb .#{$prefix}-link {
+  white-space: nowrap;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+
+  &:hover,
+  &:focus {
+    color: $brand-01;
+    border-bottom: 1px solid $brand-01;
+  }
+
+  // Applies to Firefox only
+  @-moz-document url-prefix() {
+    & {
+      border-bottom: none;
+    }
+  }
+}

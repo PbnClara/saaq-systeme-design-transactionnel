@@ -1,0 +1,34 @@
+//-----------------------------
+// Text aera
+//-----------------------------
+
+  .#{$prefix}-text-area {
+    width: 100%;
+    min-width: 10rem;
+    padding: 1rem;
+    color: $text-01;
+    background-color: $ui-03;
+    border: $input-border;
+    resize: vertical;
+
+    &:focus {
+      box-shadow: 0 0 0 1px $brand-01;
+    }
+
+    &::-webkit-input-placeholder {
+      @include placeholder-colors;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    &:disabled:hover {
+      border: $input-border;
+    }
+  }
+
+.sdt-label-validator {
+  margin-top: 20px;
+}

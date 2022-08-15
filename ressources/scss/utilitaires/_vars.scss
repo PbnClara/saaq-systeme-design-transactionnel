@@ -1,0 +1,100 @@
+$prefix: 'sdt';
+
+$transition--base: 200ms;
+$transition--expansion: 300ms; // peut-être seulement le menu sur mobile ?
+// voir https://material.io/design/motion/speed.html#duration
+// TODO demander l'avis de Clara pour la durée des animations
+
+// Polices avec solution de repli
+$LatoRegular: Lato-Regular, Arial, sans serif;
+$LatoItalic: Lato-Italic, Arial, sans serif;
+$LatoBold: Lato-Bold, Arial, sans serif;
+$LatoBoldItalic: Lato-Bold-Italic, Arial, sans serif;
+$LatoBlack: Lato-Black, Arial, sans serif;
+$LatoBlackItalic: Lato-Black-Italic, Arial, sans serif;
+$MontserratRegular: Montserrat-Regular, Arial, sans serif;
+$MontserratItalic: Montserrat-Italic, Arial, sans serif;
+$MontserratMedium: Montserrat-Medium, Arial, sans serif;
+$MontserratMediumItalic: Montserrat-Medium-Italic, Arial, sans serif;
+$MontserratSemibold: Montserrat-Semibold, Arial, sans serif;
+$MontserratSemiboldItalic: Montserrat-Semibold-Italic, Arial, sans serif;
+$RobotoRegular: Roboto-Regular, Arial, sans serif;
+$RobotoBold: Roboto-Bold, Arial, sans serif;
+
+// TODO demander l'avis de Clara pour les couleurs en double
+// Couleurs
+$brand-01: #005555;
+$brand-02: #00D1B7;
+$brand-03: #CCE3E3;
+$brand-04: #E4EEF0; // fond accordéon
+$ui-01: #ffffff;
+$ui-02: #666666;
+$ui-03: #f2f2f2;
+$ui-04: #363636;
+$ui-05: #e3e3e3;
+$ui-10: #fff8cc;
+$text-01: #363636; // Doublon de ui-04
+$text-02: #007475;
+$text-03: #ffffff; // Doublon de ui-01
+$text-04: #f2f2f2; // Doublon de ui-03
+$text-05: #00d1b7;
+$text-06: #666666; // Doublon de ui-02
+$field-01: rgba($brand-01, 0.1);
+$support-01: #FF6666;
+$support-02: #5AD17C;
+$support-03: #FFD366;
+$support-04: #46BDE3;
+$support-05: #E7E7E7;
+
+$noir: #000000;
+$lien-visite: #58188E;
+$gris-fond: #f5f7fa;
+
+
+// Global
+$input-border: 1px solid transparent;
+
+
+// TODO déménager les variables locales des composantes dans chaque composante (revoir utilité)
+
+
+
+// Checkbox
+$checkbox-border-width: 2px !default;
+
+// Code Snippet
+$snippet-background-color: $field-01 !default;
+
+// Content Switcher
+$content-switcher-border-radius: 8px !default;
+$content-switcher-option-border: 1px solid $brand-01 !default;
+
+// Data Table
+$data-table-heading-transform: uppercase !default;
+$data-table-heading-border-bottom: 1px solid $brand-01 !default;
+$data-table-row-height: 2rem !default;
+
+// Modal
+$modal-border-top: $brand-01 4px solid !default;
+$modal-footer-background-color: $ui-03 !default;
+
+// Progress Indicator
+$progress-indicator-bar-width: 1px inset transparent !default;
+$progress-indicator-stroke-width: 5 !default;
+$progress-indicator-line-offset: 0.625rem !default;
+
+// Radio Button
+$radio-border-width: 2px !default;
+
+// Structured Theme Variables
+$structured-list-padding: 2rem !default;
+$structured-list-text-transform: none !default;
+
+
+/** Points de rupture **/
+$mobile600px: 600px;
+$tablet900px: 900px;
+$desktop1000px: 1000px;
+$desktop1100px: 1100px;
+$desktop1200px: 1200px;
+$desktop1400px: 1400px;

@@ -1,0 +1,64 @@
+//-----------------------------
+// Radio
+//-----------------------------
+
+.#{$prefix}-radio-button-group {
+  display: flex;
+  align-items: center;
+  margin-top: 1.5rem;
+
+  &.vertical {
+    display: inline;
+
+    .#{$prefix}-radio-button-item:first-of-type {
+      margin-top: 1em;
+    }
+  }
+}
+
+.#{$prefix}-radio-button-item {
+  margin: 0 0 1rem 1rem;
+}
+
+.#{$prefix}-radio-button {
+  @include hidden;
+}
+
+.#{$prefix}-radio-button__label {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  margin-right: 1rem;
+}
+
+.#{$prefix}-radio-button__appearance {
+  background-color: $ui-01;
+  border-radius: 50%;
+  border: $radio-border-width solid $ui-04;
+  flex-shrink: 0;
+  height: rem(18px);
+  width: rem(18px);
+  margin-right: 1.5rem;
+}
+
+.#{$prefix}-radio-button:checked + .#{$prefix}-radio-button__label .#{$prefix}-radio-button__appearance {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-color: $brand-01;
+
+  &:before {
+    content: '';
+    display: inline-block;
+    position: relative;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background-color: $brand-01;
+  }
+}
+
+.#{$prefix}-radio-button:disabled + .#{$prefix}-radio-button__label {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

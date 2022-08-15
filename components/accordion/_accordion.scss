@@ -1,0 +1,75 @@
+/**
+* @author Gabriel Caron <gabriel.caron@saaq.gouv.qc.ca>
+* @version 2.2
+* @date 27 juillet 2022
+*/
+
+.#{$prefix}-accordion {
+  list-style: none;
+  width: 100%;
+  background-color: $brand-04;
+  transition: all $transition--base ease-in;
+  border-bottom: 1.5px solid $brand-01;
+  overflow: hidden;
+  margin: 1rem 0;
+
+    &--active {
+
+      & .#{$prefix}-accordion__content {
+        max-height: 100vh;
+        transition: max-height $transition--expansion ease-out; // transition à l'ouverture
+      }
+
+      & .#{$prefix}-accordion__title {
+        &::before {
+          transform: rotate(90deg);
+        }
+      }
+    }
+
+  &__button {
+    color: $brand-01;
+    background-color: inherit;
+    border: initial;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    padding: 0.9rem 1rem;
+    cursor: pointer;
+
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 1rem;
+      height: 1.5rem;
+      background: url(../images/fleche-accordeon.svg) no-repeat;
+      background-size: 0.9rem;
+      transition: all $transition--base ease-in-out;
+    }
+
+    &:hover, &:focus {
+      background: $brand-02;
+      & .#{$prefix}-accordion__title {
+        color: $noir;
+      }
+    }
+  }
+
+  &__title {
+    font-family: $MontserratMedium;
+    font-size: 1.6rem;
+    margin: 0;
+  }
+
+  &__content {
+    background-color: lighten(#000000, 98);
+    overflow: hidden;
+    max-height: 0;
+    transition: none; // aucune transition à la fermeture (pour ne pas voir le tiroir se fermer à l'ouverture de la page)
+
+    & > * {
+      padding: 0 2rem;
+    }
+  }
+}

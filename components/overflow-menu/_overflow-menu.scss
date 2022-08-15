@@ -1,0 +1,104 @@
+/**
+* @author Gabriel Caron <gabriel.caron@saaq.gouv.qc.ca>
+* @version 2.2
+* @date 27 juillet 2022
+*/
+
+.#{$prefix}-overflow-menu {
+  &__bouton {
+    border: none;
+    padding: 0;
+    background-color: initial;
+  }
+
+  &__liste {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0;
+  }
+
+  &__lien {
+    min-width: 15rem;
+    height: 100%;
+    border: none;
+    display: inline-block;
+    background-color: transparent;
+    text-align: left;
+    padding: 1rem 0;
+    color: $text-01;
+  }
+
+  // Par défaut, la pointe est à droite. Inverse à gauche.
+  &--flip-left {
+    &:before {
+      left: 1rem;
+    }
+  }
+}
+
+/* Styles lorsque JavaScript est actif et fonctionnel */
+.js {
+  & .#{$prefix}-overflow-menu {
+    &__bouton {
+      position: relative;
+      padding: 0;
+      cursor: pointer;
+      width: 3rem;
+      height: 3rem;
+      background-image: url(../images/overflow-menu.svg);
+      background-repeat: no-repeat;
+      transition: background-image $transition--base ease-in-out;
+
+      &:hover, &:focus {
+        background-image: url(../images/overflow-menu--active.svg);
+      }
+    }
+
+    &__navigation {
+      position: relative;
+    }
+
+    &__liste {
+      @include layer('overlay');
+      display: none;
+      flex-direction: column;
+      align-items: flex-start;
+      position: absolute;
+      z-index: 100;
+      top: 0.5rem;
+      right: 0;
+      background-color: #ffffff;
+      border: 1px solid #e3e3e3;
+
+      // Flèche au dessus de la bulle
+      &:before {
+        content: '';
+        position: absolute;
+        z-index: -1; // Sinon la flèche est au-dessus des items du menu
+        width: 1rem;
+        height: 1rem;
+        transform: rotate(45deg);
+        background-color: $ui-01;
+        border-top: 1px solid $ui-05;
+        border-left: 1px solid $ui-05;
+        top: -0.6rem;
+        right: 1rem;
+      }
+
+      &--open {
+        display: flex;
+      }
+    }
+
+    &__lien {
+      padding: 1.5rem 1rem;
+      transition: all $transition--base ease-in-out;
+
+      &:hover, &:focus {
+        background-color: $brand-01;
+        color: $ui-01;
+      }
+    }
+
+  }
+}

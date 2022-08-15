@@ -1,0 +1,40 @@
+@mixin animate-transition {
+  transition: all $transition--expansion ease-in;
+}
+
+@mixin box-state--collapsed {
+  /* Global state when collapsed */
+  max-height: 0;
+  padding: 0;
+
+  .#{$prefix}-step-hint__container {
+    max-height: 0;
+  }
+
+  svg[data-expand-icon] {
+    display: inline-block;
+  }
+
+  svg[data-collapse-icon] {
+    display: none;
+  }
+}
+
+@mixin box-state--expanded {
+  /* Global state when expanded */
+  max-height: (1.5rem * 6);
+  padding: 0 1.5rem 1.5rem;
+
+  .#{$prefix}-step-hint__container {
+    max-height: 85px;
+    margin-top: 1.5rem;
+  }
+
+  svg[data-expand-icon] {
+    display: none;
+  }
+
+  svg[data-collapse-icon] {
+    display: inline-block;
+  }
+}

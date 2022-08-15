@@ -1,0 +1,185 @@
+.#{$prefix}-tooltip--simple {
+  display: flex;
+  align-items: center;
+}
+
+.#{$prefix}-tooltip__trigger {
+  display: inline-flex;
+  align-items: center;
+  color: $text-01;
+
+  svg {
+    fill: $brand-01;
+    margin-left: 1.5rem;
+    cursor: pointer;
+
+    &:focus {
+      fill: $brand-02;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    svg {
+      fill: $brand-02;
+    }
+  }
+
+  .#{$prefix}-tooltip__trigger-word {
+    margin-left: 5px;
+    border-bottom: 1px dotted;
+
+    &:hover {
+      cursor: help;
+    }
+  }
+}
+
+.#{$prefix}-tooltip {
+  @include layer('overlay');
+  position: absolute;
+  display: none;
+  max-width: rem(240px);
+  background: $ui-03;
+  padding: 1rem;
+  border: 1px solid $ui-05;
+  z-index: z('floating');
+
+  .#{$prefix}-tooltip__label {
+    margin-bottom: 1.5rem;
+  }
+
+  &:before {
+    position: absolute;
+    background: $ui-03;
+    left: 0;
+    top: rem(-6px);
+    right: 0;
+    transform: rotate(-135deg);
+    width: 0.6rem;
+    height: 0.6rem;
+    border-right: 1px solid $ui-05;
+    border-bottom: 1px solid $ui-05;
+    margin: 0 auto;
+    content: '';
+  }
+
+  &[data-floating-menu-direction='left'] {
+    margin-left: -1.75rem;
+
+    &:before {
+      left: auto;
+      top: 44.7%;
+      right: rem(-6px);
+      transform: rotate(-45deg);
+    }
+  }
+
+  &[data-floating-menu-direction='top'] {
+    &:before {
+      top: auto;
+      bottom: rem(-6px);
+      transform: rotate(45deg);
+    }
+  }
+
+  &[data-floating-menu-direction='right'] {
+    margin-left: 1.75rem;
+
+    &:before {
+      left: rem(-6px);
+      top: 44.7%;
+      right: auto;
+      transform: rotate(135deg);
+    }
+  }
+}
+
+.#{$prefix}-tooltip--shown {
+  display: block;
+}
+
+// Simple CSS only tooltip
+.#{$prefix}-tooltip--simple__top,
+.#{$prefix}-tooltip--simple__bottom {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+
+  svg {
+    fill: $brand-01;
+    margin-left: 1.5rem;
+  }
+
+  // Tooltip - renders as a combo of :before and :after elements
+  &:before,
+  &:after {
+    position: absolute;
+    display: none;
+    background: $ui-01;
+  }
+
+  &:before {
+    @include layer('overlay');
+    max-width: rem(240px);
+    padding: 1.5rem;
+    border: 1px solid $ui-05;
+    margin-left: 50%;
+    color: $text-01;
+    content: attr(data-tooltip-text);
+    transform: translateX(-50%);
+    white-space: nowrap;
+    pointer-events: none;
+    background: $ui-03;
+  }
+
+  &:after {
+    right: 0;
+    left: 0;
+    width: 0.6rem;
+    height: 0.6rem;
+    border-right: 1px solid $ui-05;
+    border-bottom: 1px solid $ui-05;
+    margin: 0 auto;
+    content: '';
+    background: $ui-03;
+  }
+
+  &:hover,
+  &:focus {
+    svg {
+      fill: $brand-02;
+    }
+
+    &:before,
+    &:after {
+      position: absolute;
+      display: block;
+    }
+  }
+}
+
+// Tooltip caret - top position
+.#{$prefix}-tooltip--simple__top {
+  &:before {
+    bottom: 1.8rem;
+  }
+
+  &:after {
+    bottom: 1.5rem;
+    transform: rotate(45deg);
+  }
+}
+
+// Tooltip caret - bottom position
+.#{$prefix}-tooltip--simple__bottom {
+  &:before {
+    top: 1.8rem;
+  }
+
+  &:after {
+    top: 1.5rem;
+    transform: rotate(-135deg);
+  }
+}

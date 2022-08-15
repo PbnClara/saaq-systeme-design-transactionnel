@@ -1,0 +1,154 @@
+//-----------------------------
+// Tabs
+//-----------------------------
+
+.#{$prefix}-tabs {
+  color: $text-01;
+  height: auto;
+  width: 100%;
+  position: relative;
+
+  @include breakpoint(bp--sm--major) {
+    background: none;
+    min-height: rem(49px);
+  }
+}
+
+.#{$prefix}-tabs-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  height: rem(40px);
+  cursor: pointer;
+  background-color: $field-01;
+
+  svg {
+    width: rem(12px);
+    height: rem(12px);
+    fill: $brand-01;
+  }
+
+  @include breakpoint(bp--sm--major) {
+    display: none;
+  }
+}
+
+.#{$prefix}-tabs-trigger-text {
+  text-decoration: none;
+  color: $text-01;
+}
+
+.#{$prefix}-tabs__nav {
+  @include layer('overlay');
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  width: 100%;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  z-index: z('dropdown');
+
+  @include breakpoint(bp--sm--major) {
+    flex-direction: row;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    background: none;
+    box-shadow: none;
+    z-index: auto;
+  }
+
+  @include breakpoint(bp--lg--major) {
+    margin-left: 0;
+  }
+}
+
+.#{$prefix}-tabs__nav--hidden {
+  display: none;
+
+  @include breakpoint(bp--sm--major) {
+    display: flex;
+  }
+}
+
+.#{$prefix}-tabs__nav-item {
+  background-color: $ui-01;
+  padding: 0;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    background-color: $brand-01;
+
+    @include breakpoint(bp--sm--major) {
+      outline: 1px solid transparent;
+      background: transparent;
+    }
+  }
+
+  @include breakpoint(bp--sm--major) {
+    background: transparent;
+    padding: 1.75rem 0 1.75rem;
+
+    & + & {
+      margin-left: rem(48px);
+    }
+  }
+}
+
+.#{$prefix}-tabs__nav-item--selected {
+  border: none;
+
+  @include breakpoint(bp--sm--major) {
+    border-bottom: 2px solid $brand-01;
+
+    .#{$prefix}-tabs__nav-link {
+      color: $brand-01;
+
+      &:focus {
+        color: $brand-01;
+      }
+    }
+  }
+}
+
+.#{$prefix}-tabs__nav-item:hover .#{$prefix}-tabs__nav-link {
+  color: $ui-01;
+
+  @include breakpoint(bp--sm--major) {
+    color: $brand-01;
+  }
+}
+
+.#{$prefix}-tabs__nav-link {
+  display: inline-block;
+  color: $text-01;
+  text-decoration: none;
+  padding: 1rem;
+  width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  &:focus {
+    outline: 1px solid transparent;
+    background-color: $brand-01;
+    color: $ui-01;
+  }
+
+  @include breakpoint(bp--sm--major) {
+    padding: 0 1.125rem;
+    width: auto;
+
+    &:hover {
+      color: $brand-01;
+    }
+
+    &:focus {
+      background-color: transparent;
+      color: $text-01;
+      outline: 1px solid transparent;
+      box-shadow: 0 0 0 1px $brand-01;
+    }
+  }
+}

@@ -1,0 +1,175 @@
+$css--helpers: true;
+
+.#{$prefix}-data-table-v2-container + .#{$prefix}-pagination {
+  border-top: 0;
+}
+
+.#{$prefix}-pagination {
+  width: 100%;
+  background-color: $ui-01;
+  padding: 1.5rem 1rem;
+  display: flex;
+  align-items: center;
+  border: 1px solid $ui-05;
+  box-shadow: none;
+
+  .#{$prefix}-form-item {
+    flex: auto;
+  }
+}
+
+.#{$prefix}-pagination__left {
+  display: flex;
+  align-items: center;
+}
+
+.#{$prefix}-pagination__right {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.#{$prefix}-pagination__text {
+  color: $text-01;
+  display: none;
+
+  @include breakpoint('530px') {
+    display: block;
+  }
+}
+
+.#{$prefix}-pagination__button-icon {
+  height: rem(12px);
+  width: rem(12px);
+  fill: $brand-01;
+  pointer-events: none;
+  transition: $transition--base;
+}
+
+.#{$prefix}-pagination__button {
+  border: none;
+  background: none;
+  cursor: pointer;
+
+  &:hover {
+    .#{$prefix}-pagination__button-icon {
+      fill: $brand-02;
+    }
+  }
+
+  &:disabled:hover {
+    cursor: default;
+
+    .#{$prefix}-pagination__button-icon {
+      fill: $ui-05;
+    }
+  }
+}
+
+.#{$prefix}-pagination__button--backward {
+  margin-left: 1rem;
+  margin-right: 1.5rem;
+}
+
+.#{$prefix}-pagination__button--forward {
+  margin-left: 1.5rem;
+}
+
+.#{$prefix}-pagination__button--no-index {
+  border-right: 0;
+  margin-right: 1px;
+}
+
+.#{$prefix}-pagination {
+  .#{$prefix}-select {
+    margin-right: 1.5rem;
+
+    &:hover {
+      .#{$prefix}-select__arrow {
+        fill: $brand-02;
+      }
+    }
+  }
+
+  .#{$prefix}-select--inline {
+    margin-right: 0;
+    width: auto;
+  }
+
+  .#{$prefix}-select-input {
+    height: rem(24px);
+    width: auto;
+    padding: 0 1rem;
+    margin: 0;
+    text-align-last: center;
+    box-shadow: none;
+
+    &:hover {
+      color: $brand-02;
+    }
+  }
+
+  .#{$prefix}-select__arrow {
+    right: 0.3rem;
+    top: 0.625rem;
+    fill: $brand-01;
+
+    &:hover {
+      fill: $brand-02
+    }
+  }
+
+  .#{$prefix}-text-input {
+    height: rem(24px);
+    min-width: rem(24px);
+    width: rem(24px);
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    box-shadow: none;
+  }
+}
+
+.#{$prefix}-pagination--inline {
+  height: 42px;
+  margin-top: -0.5rem;
+  margin-bottom: -0.5rem;
+  margin-right: -1rem;
+
+  .#{$prefix}-pagination__button {
+    height: 100%;
+    border-left: 1px solid $ui-05;
+    border-right: 1px solid $ui-05;
+    width: rem(42px);
+    margin: 0;
+  }
+
+  .#{$prefix}-pagination__button--forward {
+    border-right: 0;
+  }
+
+  .#{$prefix}-pagination__button--backward {
+    margin-left: 1rem;
+  }
+
+  .#{$prefix}-select--inline {
+    position: relative;
+    top: -1.5px;
+  }
+
+  .#{$prefix}-select-input {
+    padding-left: 1rem;
+  }
+
+  .#{$prefix}-select__arrow {
+    right: 0.3rem;
+  }
+}
+
+//Specific style for style
+.component-example__live .#{$prefix}-pagination {
+  min-width: 250px;
+  @include breakpoint('530px') {
+    min-width: 500px;
+  }
+}

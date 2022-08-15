@@ -1,0 +1,68 @@
+.#{$prefix}-fieldset {
+  padding-bottom: 1.5rem;
+
+  &[data-invalid] {
+    padding-bottom: 1.5rem;
+  }
+}
+
+.#{$prefix}-form-heading {
+  margin-bottom: 1rem;
+}
+
+.#{$prefix}-form-item {
+  flex: 1;
+  margin-right: 1rem;
+  margin-bottom: 1.5rem;
+
+  .#{$prefix}-form__helper-text {
+    color: $text-06;
+    line-height: 1.5;
+    z-index: 0;
+    max-height: 3rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.#{$prefix}-label {
+  display: inline-block;
+  vertical-align: baseline;
+  margin-bottom: 1.5rem;
+}
+
+.#{$prefix}-label .#{$prefix}-tooltip__trigger {
+  // taille (supprimer si inutile)
+}
+
+.#{$prefix}-label--disabled {
+  opacity: 0.5;
+}
+
+fieldset[data-invalid],
+div[data-invalid],
+input[data-invalid],
+textarea[data-invalid],
+select[data-invalid] {
+  box-shadow: 0 2px 0px 0px $support-01;
+
+  ~ .#{$prefix}-form-requirement {
+    max-height: rem(200px);
+  }
+}
+
+fieldset[data-invalid] ~ .#{$prefix}-form-requirement {
+  margin-bottom: 1.5rem;
+}
+
+.#{$prefix}-form-requirement {
+  max-height: 0;
+  overflow: hidden;
+  line-height: 1.5;
+
+  &::before {
+    content: '*';
+    margin: 1.75rem 0 0;
+    display: inline-block;
+    color: $support-01;
+  }
+}

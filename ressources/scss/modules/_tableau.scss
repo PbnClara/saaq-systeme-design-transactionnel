@@ -1,0 +1,78 @@
+/**
+* @author Gabriel Caron <gabriel.caron@saaq.gouv.qc.ca>
+* @version 1.0
+* @date 22 mars 2022
+*
+* ------------------
+* TABLE DES MATIERES
+* ------------------
+* STYLES DES TABLEAUX DU SITE WEB
+*
+*/
+
+/* Documentation */
+
+
+.page {
+
+  & .contenu {
+    & .section {
+      table {
+        // Tableau
+        width: 100%;
+        margin-top: 1rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.25;
+
+        & + p {
+          margin-top: 3rem;
+        }
+
+        & + h2 {
+          margin-top: 2rem;
+        }
+
+        & + hr + hr + blockquote {
+          margin-top: 2rem;
+        }
+
+        thead {
+          th {
+            // Haut du tableau
+            font-size: 1.6rem;
+            text-align: left;
+            line-height: 1.25;
+            padding: 1rem 3rem 1rem 3rem;
+            white-space: nowrap;
+          }
+        }
+
+        tbody {
+          tr {
+
+            td {
+              // Cellule du tableau
+              font-size: 1.6rem;
+              padding: 1rem 1rem 1rem 3rem;
+              line-height: 1.25;
+
+              strong {
+                letter-spacing: 0;
+              }
+
+              // Première colonne du tableau
+              &:first-child {
+                white-space: nowrap;
+
+                @media all and (max-width: 550px) {
+                  white-space: normal;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+  }
+}

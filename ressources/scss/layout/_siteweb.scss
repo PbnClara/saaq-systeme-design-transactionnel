@@ -1,0 +1,433 @@
+/**
+* @author Gabriel Caron <gabriel.caron@saaq.gouv.qc.ca>
+* @version 2.3
+* @date 26 juillet 2022
+*
+* ------------------
+* TABLE DES MATIERES
+* ------------------
+* STYLES GÉNÉRAUX DU SITE WEB
+** Images responsives
+** Accessibilité
+** Positionnement de la page
+** Navigation latérale
+** Positionnement du contenu
+** Pied de page
+*
+*/
+
+/* Positionnement de la page */
+
+.page {
+
+  .piv {
+    @include conteneur1200px($conteneurBleed: true);
+    border-top: 0.7rem solid #16619d;
+    border-bottom: 4.5rem solid $brand-02;
+    font-family: $RobotoRegular;
+    background-color: $ui-01;
+
+    // TODO prévoir une hauteur minimale si des liens sont retirés
+    &__conteneur {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 3rem 2rem 3rem;
+
+      @media screen and (min-width: $desktop1000px) {
+        justify-content: flex-start;
+        gap: 4.5rem;
+      }
+    }
+
+    &__logo {
+      @media screen and (min-width: $desktop1000px) {
+        width: 14rem;
+      }
+    }
+
+    &__titre {
+      flex-basis: 100%;
+      color: $noir;
+      font-family: $RobotoBold;
+      text-decoration: none;
+      margin-top: 0.5rem;
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      @media screen and (min-width: $desktop1000px) {
+        order: 2;
+        flex-basis: initial;
+        flex-grow: 100;
+      }
+    }
+
+    &__navigation {
+
+      & ul {
+        padding: 0;
+        list-style-type: none;
+      }
+
+      & a {
+        color: $noir;
+      }
+      @media screen and (min-width: $desktop1000px) {
+        order: 3;
+      }
+    }
+
+    /* Pied de page */
+
+    &__pieddepage {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 3rem 0;
+      background-color: $ui-01;
+    }
+
+    &__credits {
+      flex-basis: 100%;
+      font-family: $RobotoRegular;
+      text-align: center;
+      margin: 1rem 0;
+    }
+  }
+
+
+  &__conteneur {
+    @include conteneur1200px($conteneurBleed: true, $flex: true);
+  }
+
+  & .barrelaterale {
+    flex-direction: column;
+    flex: 0 0 17rem;
+    background-color: #1B2431;
+    padding: 0 3rem;
+    position: relative;
+    top: -4.5rem;
+    margin-bottom: -4.5rem;
+
+    &__titreSite {
+      display: inline-block;
+      font-family: $LatoBlack;
+      font-size: 2rem;
+      color: $ui-01;
+      line-height: 1.2;
+      margin: 2rem 0 0 0;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  /* Navigation latérale */
+
+  & .navigation {
+
+    &__lien {
+      display: block;
+      margin: 0.5rem 0;
+      font-family: $LatoRegular;
+      text-decoration: none;
+      color: $ui-01;
+    }
+
+    &__liste {
+      list-style-type: none;
+      padding: 0;
+
+      &:nth-child(2) {
+        padding-left: 0.5rem;
+      }
+    }
+
+  }
+
+  /* Positionnement du contenu */
+
+  & .contenu {
+
+    & .section {
+
+      &.conteneur {
+        margin: 3rem;
+      }
+
+      &.composante {
+        background-color: $gris-fond;
+
+        &.bulle {
+          padding: 2rem;
+          background-color: $ui-01;
+        }
+
+        & hr {
+          border-color: $gris-fond;
+          border-style: dotted;
+        }
+      }
+
+      &.code {
+        margin: 2rem 0;
+        background-color: #2E3842;
+
+        & code {
+          color: hsl(0deg 0% 90%);
+          font-size: 1.4rem;
+        }
+      }
+
+      /* Documentation */
+
+      &__titre {
+
+        &H2 {
+          font-size: 3rem;
+          position: relative;
+        }
+
+        &H3 {
+          font-size: 2.5rem;
+        }
+
+        &H4 {
+          font-size: 2rem;
+          line-height: 1.25;
+        }
+      }
+
+      /* Code */
+      & p code,
+      li code {
+        font-size: 0.875rem;
+        padding: 0.25rem;
+        background-color: $field-01;
+        color: $text-02;
+        font-family: Courier, monospace;
+      }
+    }
+
+    & .entete {
+      padding: 1rem 3rem 0 3rem;
+
+      &__titre {
+        padding: 2rem 0;
+        font-size: 4rem;
+        color: #152935;
+      }
+
+      &__navPage {
+        font-size: 1.6rem;
+
+        &Liste {
+          padding: 0;
+          &Item {
+            display: inline-block;
+            padding: 0 2rem 2rem 0;
+          }
+        }
+
+        &Lien {
+          font-family: $LatoBold;
+          text-decoration: none;
+          color: #152935;
+          white-space: nowrap;
+        }
+      }
+    }
+
+    & .code-exemple {
+      font-family: Courrier, sans-serif;
+      font-size: 1.2rem;
+      color: gray;
+      height: 20rem;
+      width: 100%;
+      margin: 0;
+      padding: 1rem 3rem;
+      overflow: auto;
+    }
+  }
+
+  /* Page Typography */
+
+  .section-exemple {
+    padding-left: 50px;
+    padding-top: 10px;
+    border: 2px solid #007475;
+    margin-top: 10px;
+    color: #007475;
+    margin-bottom: 0;
+    background-color: rgba(0, 116, 117, 0.07);
+  }
+
+  .exception .section__titreH3{
+    padding-top: 0;
+    margin-top: 0;
+  }
+}
+
+
+
+
+// Classes utilisées dans la page Color du site Web
+.#{$prefix}-palette--brand-01__background {
+  background-color: $brand-01;
+}
+.#{$prefix}-palette--brand-02__background {
+  background-color: $brand-02;
+}
+.#{$prefix}-palette--brand-03__background {
+  background-color: $brand-03;
+}
+
+.#{$prefix}-palette--ui-10__background {
+  background-color: $ui-10;
+}
+.#{$prefix}-palette--ui-01__background {
+  background-color: $ui-01;
+}
+.#{$prefix}-palette--ui-02__background {
+  background-color: $ui-02;
+}
+.#{$prefix}-palette--ui-03__background {
+  background-color: $ui-03;
+}
+.#{$prefix}-palette--ui-04__background {
+  background-color: $ui-04;
+}
+.#{$prefix}-palette--ui-05__background {
+  background-color: $ui-05;
+}
+
+.#{$prefix}-palette--text-01__background {
+  background-color: $text-01;
+}
+.#{$prefix}-palette--text-02__background {
+  background-color: $text-02;
+}
+.#{$prefix}-palette--text-03__background {
+  background-color: $text-03;
+}
+.#{$prefix}-palette--text-04__background {
+  background-color: $text-04;
+}
+.#{$prefix}-palette--text-05__background {
+  background-color: $text-05;
+}
+.#{$prefix}-palette--text-06__background {
+  background-color: $text-06;
+}
+
+.#{$prefix}-palette--support-01__background {
+  background-color: $support-01;
+}
+.#{$prefix}-palette--support-02__background {
+  background-color: $support-02;
+}
+.#{$prefix}-palette--support-03__background {
+  background-color: $support-03;
+}
+.#{$prefix}-palette--support-04__background {
+  background-color: $support-04;
+}
+.#{$prefix}-palette--support-05__background {
+  background-color: $support-05;
+}
+
+.#{$prefix}-palette--brand-01__text {
+  color: $brand-01;
+}
+.#{$prefix}-palette--brand-02__text {
+  color: $brand-02;
+}
+.#{$prefix}-palette--brand-03__text {
+  color: $brand-03;
+}
+
+.#{$prefix}-palette--ui-10__text {
+  color: $ui-10;
+}
+.#{$prefix}-palette--ui-01__text {
+  color: $ui-01;
+}
+.#{$prefix}-palette--ui-02__text {
+  color: $ui-02;
+}
+.#{$prefix}-palette--ui-03__text {
+  color: $ui-03;
+}
+.#{$prefix}-palette--ui-04__text {
+  color: $ui-04;
+}
+.#{$prefix}-palette--ui-05__text {
+  color: $ui-05;
+}
+
+.#{$prefix}-palette--text-01__text {
+  color: $text-01;
+}
+.#{$prefix}-palette--text-02__text {
+  color: $text-02;
+}
+.#{$prefix}-palette--text-03__text {
+  color: $text-03;
+}
+.#{$prefix}-palette--text-04__text {
+  color: $text-04;
+}
+.#{$prefix}-palette--text-05__text {
+  color: $text-05;
+}
+.#{$prefix}-palette--text-06__text {
+  color: $text-06;
+}
+
+.#{$prefix}-palette--support-01__text {
+  color: $support-01;
+}
+.#{$prefix}-palette--support-02__text {
+  color: $support-02;
+}
+.#{$prefix}-palette--support-03__text {
+  color: $support-03;
+}
+.#{$prefix}-palette--support-04__text {
+  color: $support-04;
+}
+.#{$prefix}-palette--support-05__text {
+  color: $support-03;
+}
+
+// Classes for content layering
+.#{$prefix}-layer--base {
+  @include layer('base');
+}
+
+.#{$prefix}-layer--flat {
+  @include layer('flat');
+}
+
+.#{$prefix}-layer--raised {
+  @include layer('raised');
+}
+
+.#{$prefix}-layer--overlay {
+  @include layer('overlay');
+}
+
+.#{$prefix}-layer--sticky-nav {
+  @include layer('sticky-nav');
+}
+.#{$prefix}-layer--temporary-nav {
+  @include layer('temporary-nav');
+}
+.#{$prefix}-layer--pop-out {
+  @include layer('pop-out');
+}

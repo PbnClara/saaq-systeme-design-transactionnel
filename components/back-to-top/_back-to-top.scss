@@ -1,0 +1,30 @@
+.#{$prefix}-btn--backtotop {
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 1.125rem;
+
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+
+  transition: all $transition--expansion ease-in;
+
+  fill: $brand-01;
+
+  &:hover {
+    fill: $ui-01;
+  }
+
+  // For fade in/out animation
+  opacity: 1;
+
+  &.#{$prefix}-back-to-top__fade-in {
+    opacity: 0;
+  }
+
+  display: inline-block;
+
+  &.#{$prefix}-back-to-top__invisible {
+    display: none;
+  }
+}

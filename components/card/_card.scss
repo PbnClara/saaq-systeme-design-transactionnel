@@ -1,0 +1,101 @@
+/**
+* @author Clara Plébani <clara.plebani@saaq.gouv.qc.ca>
+* @author Gabriel Caron <gabriel.caron@saaq.gouv.qc.ca>
+* @version 3.2
+* @date 27 juillet 2022
+*/
+
+.sdt-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: $ui-01;
+  border-radius: 0.25rem;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
+  width: 30rem; // Taille de base si le parent n'est pas flex
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap; // Affichera le menu si JS est désactivé
+    padding: 1rem 2rem;
+    border-bottom: 0.15rem solid $ui-05;
+  }
+
+  &__titre {
+    margin: 0.5rem 0 0.1rem 0; // Pour centrer le titre visuellement avec le bouton
+    font-family: $LatoBold;
+    font-size: 2.2rem;
+    width: 100%;
+  }
+
+  & .#{$prefix}-overflow-menu {
+
+    &__bouton {
+      display: none;
+    }
+  }
+
+  .sdt-card__contenu {
+    margin: 1rem 2rem;
+
+    &-sous-titre {
+      display: block;
+      font-family: $MontserratSemibold;
+    }
+
+    &-icone {
+      width: 60%;
+      margin: 0 auto 2rem auto;
+    }
+
+    & .#{$prefix}-tag {
+      display: flex;
+      flex-basis: content; // flex-basis a préséance sur le width
+      margin: 0 auto 1rem auto;
+    }
+  }
+
+  &__footer {
+    margin: 0 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  & .#{$prefix}-btn {
+    flex-basis: 100%;
+  }
+}
+
+.#{$prefix}-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+/* Si JavaScript est désactivé ou non fonctionnel */
+/* On affiche l'icône seulement si JS est activé */
+.js {
+  & .#{$prefix}-card {
+    &__titre {
+      margin: 0 0 0.1rem 0;
+      width: initial;
+      flex-grow: 100;
+    }
+
+    & .#{$prefix}-overflow-menu {
+
+      &__bouton {
+        display: initial;
+      }
+
+      &__liste {
+        top: 2rem;
+      }
+    }
+  }
+}
+
+

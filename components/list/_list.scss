@@ -1,0 +1,40 @@
+//-----------------------------
+// List
+//-----------------------------
+
+.#{$prefix}-list--nested,
+.#{$prefix}-list--unordered,
+.#{$prefix}-list--ordered {
+  margin-left: 2rem;
+  line-height: 1.5rem;
+}
+
+.#{$prefix}-list--unordered,
+.#{$prefix}-list--ordered {
+  padding: 1rem;
+}
+
+.#{$prefix}-list__item {
+  padding-left: 1.25rem;
+}
+
+.#{$prefix}-list--unordered > .#{$prefix}-list__item {
+  list-style-type: disc;
+}
+
+.#{$prefix}-list--ordered > .#{$prefix}-list__item {
+  list-style-type: decimal;
+}
+
+.#{$prefix}-list--nested {
+  margin-left: 1.5rem;
+}
+
+.#{$prefix}-list--nested > .#{$prefix}-list__item {
+  list-style-type: none;
+}
+
+.#{$prefix}-list--nested > .#{$prefix}-list__item:before {
+  content: '-';
+  padding-right: 1.25rem;
+}

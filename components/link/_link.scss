@@ -1,0 +1,112 @@
+/**
+* @author Gabriel Caron <gabriel.caron@saaq.gouv.qc.ca>
+* @version 2.2
+* @date 29 juillet 2022
+*/
+
+@mixin lienAvecIcone($positionIcone) {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  &:visited {
+    color: $brand-01;
+  }
+
+  @if $positionIcone == "avant" {
+    &::before {
+      content: "";
+      width: 2rem;
+      height: 2rem;
+    }
+  } @else if ($positionIcone == "apres") {
+    &::after {
+      content: "";
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+}
+
+a {
+  color: $brand-01;
+  text-decoration: underline;
+  font-size: 1.6rem;
+  line-height: 150%;
+
+  &:visited {
+    text-decoration-line: underline;
+    color: $lien-visite;
+  }
+
+  &:active,
+  &:hover,
+  &:focus {
+    color: $brand-01;
+    text-decoration: none;
+  }
+}
+
+/* Lien de téléchargement (Download Link) */
+
+.#{$prefix}-link__download {
+  @include lienAvecIcone($positionIcone: "avant");
+
+  &::before {
+    background: url(../../liaisons/images/link--download.svg) 0/4rem no-repeat;
+    // Syntaxe CSS: background: bg-color bg-image position/bg-size bg-repeat bg-origin bg-clip bg-attachment initial|inherit;
+  }
+
+  &:hover, &:active {
+    text-decoration: none;
+
+    &::before {
+      background-position: -2rem 0;
+    }
+  }
+}
+
+/* Liens de navigation (Navigation Link) */
+
+.#{$prefix}-link__navigationPrevious {
+  @include lienAvecIcone($positionIcone: "avant");
+
+  &::before {
+    background: url(../../liaisons/images/link--navigation-previous.svg) 0/4rem no-repeat;
+  }
+
+  &:hover, &:active {
+    text-decoration: none;
+
+    &::before {
+      background-position: -2rem 0;
+    }
+  }
+}
+
+.#{$prefix}-link__navigationNext {
+  @include lienAvecIcone($positionIcone: "apres");
+
+  &::after {
+    background: url(../../liaisons/images/link--navigation-next.svg) 0/4rem no-repeat;
+  }
+
+  &:hover, &:active {
+    text-decoration: none;
+
+    &::after {
+      background-position: -2rem 0;
+    }
+  }
+}
+
+/* Lien Sauter au contenu avant le PIV */
+
+.sauter-contenu.focusable {
+  display: block;
+  padding: 0 3rem;
+  line-height: 5rem;
+  color: $ui-01;
+  background-color: $brand-01;
+  text-align: center;
+}

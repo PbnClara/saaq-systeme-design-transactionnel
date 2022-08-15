@@ -1,0 +1,64 @@
+@import 'mixins';
+
+.#{$prefix}-step-hint {
+
+  background-color: $ui-05;
+  color: $text-01;
+
+  box-sizing: border-box;
+  align-items: center;
+  border-top: 2px solid $brand-01;
+  width: 100%;
+
+  @include animate-transition;
+  @include box-state--collapsed;
+
+  &[aria-expanded='true'] {
+    @include box-state--expanded;
+  }
+
+  .#{$prefix}-data-hint-box {
+    text-align: left;
+    max-height: 85px;
+    width: 100%;
+
+    @include breakpoint(bp--sm--major) {
+      width: 50%;
+    }
+  }
+
+  .#{$prefix}-step-hint__container {
+    text-align: center;
+    overflow: hidden;
+    @include animate-transition;
+  }
+
+  .#{$prefix}-step-hint__button {
+    border: none;
+    position: relative;
+    top: (-(1.5rem / 2));
+    background-color: transparent;
+    text-align: center;
+    height: 0;
+
+    svg {
+      fill: $brand-01;
+      @include animate-transition;
+      height: 1.5rem;
+      width: 1.5rem;
+      border-radius: 1.5rem;
+      background: radial-gradient($ui-01 60%, transparent 60%);
+
+      &:hover {
+        fill: $brand-02;
+      }
+    }
+  }
+
+  .#{$prefix}-step-hint__message-title {
+  }
+
+  .#{$prefix}-step-hint__message-text {
+    color: $text-01;
+  }
+}

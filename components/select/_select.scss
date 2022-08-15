@@ -1,0 +1,91 @@
+//-----------------------------
+// Select
+//-----------------------------
+
+.#{$prefix}-select {
+  position: relative;
+  display: block;
+}
+
+.#{$prefix}-select-input {
+  height: rem(40px);
+  appearance: none;
+  display: block;
+  width: 100%;
+  padding: 0 2.5rem 0 1rem;
+  color: $text-01;
+  background-color: $ui-03;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+
+  // Hide default select arrow in IE10+
+  &::-ms-expand {
+    display: none;
+  }
+
+  &::placeholder {
+    color: rgba($text-01, 0.6);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.#{$prefix}-select__arrow {
+  fill: $brand-01;
+  position: absolute;
+  right: 1rem;
+  top: 1.175rem;
+  width: rem(10px);
+  height: rem(5px);
+  pointer-events: none;
+}
+
+.#{$prefix}-select-optgroup,
+.#{$prefix}-select-option {
+  color: $text-01; // For the options to show in IE11
+}
+
+// Override some Firefox user-agent styles
+@-moz-document url-prefix() {
+  .#{$prefix}-select-option {
+    background-color: $ui-01;
+    color: $text-01;
+  }
+
+  .#{$prefix}-select-optgroup {
+    color: $text-01;
+  }
+}
+
+.#{$prefix}-select-option {
+  &:checked, &:active, &:focus {
+    background-color: $brand-03;
+    color: $text-03;
+  }
+}
+
+.#{$prefix}-select--inline {
+  display: flex;
+  align-items: center;
+  color: $text-02;
+
+  .#{$prefix}-label {
+    white-space: nowrap;
+    margin: 0 1.5rem 0 0;
+    color: $text-06;
+  }
+
+  .#{$prefix}-select-input {
+    background-color: transparent;
+    color: $brand-01;
+
+    &:disabled ~ * {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+}

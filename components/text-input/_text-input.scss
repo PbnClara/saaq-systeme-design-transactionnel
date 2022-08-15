@@ -1,0 +1,90 @@
+//-----------------------------
+// Text
+//-----------------------------
+
+.#{$prefix}-text-input {
+  display: block;
+  width: 100%;
+  height: rem(40px);
+  min-width: 10rem;
+  padding: 0 1rem;
+  color: $text-01;
+  background-color: $ui-03;
+  border: none;
+
+  &--right {
+    text-align: right;
+  }
+
+  &__wrapper {
+    position: relative;
+    display: inline-block;
+  }
+
+  &__inline-block {
+    display: inline-block;
+  }
+
+  &::-webkit-input-placeholder {
+    @include placeholder-colors();
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 1px $brand-01;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &:disabled:hover {
+    border: $input-border;
+  }
+
+  &__currency-wrapper {
+    position: absolute;
+    left: 0;
+  }
+
+  &[data-text-input-type=currency], &[data-text-input-type=number], &[data-text-input-type=folder-number], &[data-text-input-type=phone-number], &__currency-wrapper {
+    min-width: 13rem;
+    display: inline-block;
+    width: auto;
+  }
+
+  &[data-text-input-type=folder-number] {
+    text-transform: uppercase;
+  }
+
+  &[data-text-input-type=currency] {
+    &[data-text-input-lang=en], &[data-text-input-lang=fr] {
+      + .#{$prefix}-text-input__currency-wrapper .#{$prefix}-text-input__currency {
+        position: absolute;
+        height: rem(40px);
+        width: 34px;
+        top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid $ui-05;
+      }
+    }
+
+    &[data-text-input-lang=en] {
+      padding-left: 49px;
+
+      + .#{$prefix}-text-input__currency-wrapper .#{$prefix}-text-input__currency {
+        left: 0;
+      }
+    }
+
+    &[data-text-input-lang=fr] {
+      padding-right: 34px;
+
+      + .#{$prefix}-text-input__currency-wrapper .#{$prefix}-text-input__currency {
+        right: 0;
+      }
+    }
+  }
+}

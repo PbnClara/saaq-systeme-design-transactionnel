@@ -1,0 +1,207 @@
+//-----------------------------
+// Content Switcher V2
+//-----------------------------
+
+.#{$prefix}-content-switcher-v2 {
+  color: $text-01;
+  height: auto;
+  width: 100%;
+  position: relative;
+
+  @include breakpoint(bp--sm--major) {
+    background: none;
+    min-height: rem(49px);
+  }
+}
+
+.#{$prefix}-content-switcher-v2-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  height: rem(40px);
+  cursor: pointer;
+  background-color: $field-01;
+
+  svg {
+    width: rem(12px);
+    height: rem(12px);
+    margin-left: 1rem;
+    fill: $brand-01;
+  }
+
+  @include breakpoint(bp--sm--major) {
+    display: none;
+  }
+}
+
+.#{$prefix}-content-switcher-v2-trigger-text {
+  text-decoration: none;
+  color: $text-01;
+}
+
+.#{$prefix}-content-switcher-v2__nav {
+  @include layer('overlay');
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  z-index: z('dropdown');
+  min-width: 100%;
+
+  @include breakpoint(bp--sm--major) {
+    flex-direction: row;
+    position: static;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    background: none;
+    box-shadow: none;
+    z-index: auto;
+  }
+
+  @include breakpoint(bp--lg--major) {
+    margin-left: 0;
+  }
+}
+
+.#{$prefix}-content-switcher-v2__nav--hidden {
+  display: none;
+
+  @include breakpoint(bp--sm--major) {
+    display: flex;
+  }
+}
+
+.#{$prefix}-content-switcher-v2__nav-item {
+  background-color: $ui-01;
+  padding: 0;
+  cursor: pointer;
+  border: 1px solid $brand-01;
+  color: $text-02;
+
+  &:hover,
+  &:focus {
+    background-color: $brand-01;
+
+    @include breakpoint(bp--sm--major) {
+      outline: 1px solid transparent;
+      background: transparent;
+    }
+  }
+
+  .#{$prefix}-content-switcher-v2__icon {
+    margin-right: 1.5rem;
+    fill: currentColor;
+
+    width: 1rem;
+    height: 1rem;
+    position: relative;
+    top: 2px;
+
+    // need to color any child path or g
+    * {
+      fill: currentColor;
+    }
+  }
+
+  @include breakpoint(bp--sm--major) {
+    background: transparent;
+    padding: 1.75rem 1rem;
+
+    .#{$prefix}-content-switcher-v2__nav-link {
+      color: $text-02;
+    }
+
+    &:hover {
+      border-color: $brand-02;
+      background-color: $brand-02;
+    }
+
+    &:not(:last-of-type) {
+      border-right: none;
+    }
+
+    &:not(:first-of-type) {
+      border-left: $content-switcher-option-border;
+    }
+
+    &:first-of-type {
+      border-bottom-left-radius: $content-switcher-border-radius;
+      border-top-left-radius: $content-switcher-border-radius;
+
+      &:focus {
+        box-shadow: -2px 0 0 0 $brand-01, 0 2px 0 0 $brand-01, 0 -2px 0 0 $brand-01;
+      }
+    }
+
+    &:last-of-type {
+      border-top-right-radius: $content-switcher-border-radius;
+      border-bottom-right-radius: $content-switcher-border-radius;
+
+      &:focus {
+        box-shadow: 2px 0 0 0 $brand-01, 0 2px 0 0 $brand-01, 0 -2px 0 0 $brand-01;
+      }
+    }
+
+    &.#{$prefix}-content-switcher-v2__nav-item--selected {
+      background-color: $brand-01;
+      outline: 1px solid transparent;
+      color: $text-03;
+
+      .#{$prefix}-content-switcher-v2__nav-link {
+        color: $text-03;
+      }
+
+      &:hover {
+        border-bottom: 2px solid $brand-02;
+
+        .#{$prefix}-content-switcher-v2__nav-link {
+          color: $text-03;
+        }
+      }
+    }
+  }
+}
+
+.#{$prefix}-content-switcher-v2__nav-item--selected {
+  border: none;
+  background-color: $brand-01;
+  color: $text-03;
+
+  .#{$prefix}-content-switcher-v2__nav-link {
+    color: $text-03;
+  }
+}
+
+.#{$prefix}-content-switcher-v2__nav-link {
+  display: inline-block;
+  color: $text-01;
+  text-decoration: none;
+  padding: 1rem;
+  width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  &:focus {
+    outline: 1px solid transparent;
+    background-color: $brand-01;
+    color: $ui-01;
+  }
+
+  @include breakpoint(bp--sm--major) {
+    padding: 0 1.125rem;
+    width: auto;
+
+    &:focus {
+      background-color: transparent;
+      outline: 1px solid transparent;
+      box-shadow: 0 0 0 1px $brand-01;
+    }
+  }
+}
+
+.#{$prefix}-content-switcher-v2__tab--hidden {
+  display: none;
+}
